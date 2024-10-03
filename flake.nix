@@ -5,8 +5,6 @@
   };
 
   outputs = { self, nixpkgs }: {
-    lib = {
-            haskell = import ./my-haskell-lib.nix { inherit nixpkgs; };
-          };
+    overlay.default = import ./my-haskell-lib.nix;
   };
 }
