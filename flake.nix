@@ -5,6 +5,6 @@
   };
 
   outputs = { self, nixpkgs }: {
-    lib = import ./my-haskell-lib.nix { inherit nixpkgs; };
+    haskell.lib = import ./my-haskell-lib.nix { inherit nixpkgs; };
   };
 }

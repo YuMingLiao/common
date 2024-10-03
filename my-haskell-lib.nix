@@ -40,7 +40,5 @@ let
     }
   )));
 
- lib = {
   haskell.lib = { inherit noChecks noHaddocks properExtend; };
- };
-in lib
+in haskell.lib;
