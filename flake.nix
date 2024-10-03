@@ -5,6 +5,7 @@
   };
 
   outputs = { self, nixpkgs }: {
-    overlay.default = import ./my-haskell-lib.nix;
+    overlay.default = import ./haskell-lib.nix;
+    defaultPackages.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.hello;
   };
 }
