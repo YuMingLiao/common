@@ -27,18 +27,18 @@ let
   ## entire package set, rather than just a package here or there.
   noHaddocks = hp: (properExtend hp (final: prev: (
     {
-      mkDerivation = args: nixpkgs.mkDerivation (args // {
+      mkDerivation = args: nixpkgs.haskellPackages.mkDerivation (args // {
         doHaddock = false;
       });
     }
   )));
   noChecks = hp: (properExtend hp (final: prev: (
     {
-      mkDerivation = args: nixpkgs.mkDerivation (args // {
+      mkDerivation = args: nixpkgs.haskellPackages.mkDerivation (args // {
         doCheck = false;
       });
     }
   )));
 
-  haskell.lib = { inherit noChecks noHaddocks properExtend; };
-in haskell.lib;
+  haskell = { lib = { inherit noChecks noHaddocks properExtend; };};
+in haskell
