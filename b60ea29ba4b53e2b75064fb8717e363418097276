@@ -1,0 +1,5 @@
+seems haskell-lib needs nixpkgs, so that's an overlay.
+I could
+1. put haskell-lib into every haskell project flake folder and import it as an overlay.
+2. write functions in flake.nix
+3. create overlay for flake
