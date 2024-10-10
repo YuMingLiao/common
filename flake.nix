@@ -17,18 +17,22 @@
     {
       overlay.default = import ./haskell-lib.nix;
       #defaultPackages.x86_64-linux = overlayed-nixpkgs;
+      flakeModules = {
+        default = import ./flake-module.nix { inherit inputs; };
+      };
       lib.mkFlake =
         args: mod:
         inputs.flake-parts.lib.mkFlake
           {
             inputs = args.inputs // {
-              nixpkgs = overlayed-nixpkgs;
+              my-nixpkgs = overlayed-nixpkgs;
             };
           }
           {
             systems = import inputs.systems;
             imports = [
-              inputs.haskell-flake.flakeModule
+              inputs.self.flakeModules.default
+              #inputs.haskell-flake.flakeModule
               mod
             ];
           };
