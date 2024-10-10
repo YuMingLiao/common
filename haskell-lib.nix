@@ -8,38 +8,67 @@ let
   # Note that f takes final: prev: arguments, scoped within the
   # Haskell package set hp.
 
-  properExtend = hp: f: hp.override (oldArgs: {
-    overrides =
-    prev.lib.composeExtensions (oldArgs.overrides or (_: _: {}))
-      f;
-  });
-
+  properExtend =
+    hp: f:
+    hp.override (oldArgs: {
+      overrides = prev.lib.composeExtensions (oldArgs.overrides or (_: _: { })) f;
+    });
 
   ## Sometimes you don't want any haddocks to be generated for an
   ## entire package set, rather than just a package here or there.
-  noHaddocks = hp: (properExtend hp (final: prev: (
-    {
-      mkDerivation = args: prev.mkDerivation (args // {
-        doHaddock = false;
-      });
-    }
-  )));
-  noChecks = hp: (properExtend hp (final: prev: (
-    {
-      mkDerivation = args: prev.mkDerivation (args // {
-        doCheck = false;
-      });
-    }
-  )));
+  noHaddocks =
+    hp:
+    (properExtend hp (
+      final: prev: ({
+        mkDerivation =
+          args:
+          prev.mkDerivation (
+            args
+            // {
+              doHaddock = false;
+            }
+          );
+      })
+    ));
+  noChecks =
+    hp:
+    (properExtend hp (
+      final: prev: ({
+        mkDerivation =
+          args:
+          prev.mkDerivation (
+            args
+            // {
+              doCheck = false;
+            }
+          );
+      })
+    ));
 
 in
 
 {
-  haskell = (prev.haskell or {}) // {
-    lib = (prev.haskell.lib or {}) // {
+  haskell = (prev.haskell or { }) // {
+    lib = (prev.haskell.lib or { }) // {
       inherit noHaddocks;
       inherit noChecks;
       inherit properExtend;
     };
+    packages = prev.haskell.packages // {
+      ghc9101 =
+        pipe
+          {
+            overrides =
+              hfinal: hprev:
+              {
+              };
+          }
+          [
+            ghc9101.override
+            noChecks
+            noHaddocks
+          ];
+    };
+
   };
 }
