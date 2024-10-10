@@ -11,7 +11,6 @@ common:
       inherit system;
       #config.allowUnfree = true;
       overlays = [
-        ./nix/ghc9101.nix
         ./haskell-lib.nix
       ];
     };
