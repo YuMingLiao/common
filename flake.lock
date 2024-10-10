@@ -1,20 +1,104 @@
 {
   "nodes": {
-    "nixpkgs": {
+    "flake-parts": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-NmcVhGElxDbmEWzgXsyAjlRhUus/nEqPC5So7BOJLUM=",
-        "path": "/nix/store/mvz96grv31nxq69ldw5a5pn2qh1s6ca6-source",
-        "type": "path"
+        "lastModified": 1727826117,
+        "narHash": "sha256-K5ZLCyfO/Zj9mPFldf3iwS6oZStJcU4tSpiXTMYaaL0=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "3d04084d54bedc3d6b8b736c70ef449225c361b1",
+        "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "haskell-flake": {
+      "locked": {
+        "lastModified": 1728227251,
+        "narHash": "sha256-JLDhMFyGyFe0QJAbCuSxB7/kjUCA7uUAMa6BFRORwXk=",
+        "owner": "srid",
+        "repo": "haskell-flake",
+        "rev": "9cbfbfc38f1fbf9a0f471795c84780211875fd45",
+        "type": "github"
+      },
+      "original": {
+        "owner": "srid",
+        "repo": "haskell-flake",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1728472043,
+        "narHash": "sha256-+fUCZ7C34cp+bY5E9Hw4biRyI+IINVsO+sXFCieWkZA=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "4fa56ac6d86a213b556d4db9b1cb43a51b3e40ec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-24_05": {
+      "locked": {
+        "lastModified": 1728328465,
+        "narHash": "sha256-a0a0M1TmXMK34y3M0cugsmpJ4FJPT/xsblhpiiX1CXo=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1bfbbbe5bbf888d675397c66bfdb275d0b99361c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib": {
+      "locked": {
+        "lastModified": 1727825735,
+        "narHash": "sha256-0xHYkMkeLVQAMa7gvkddbPqpxph+hDzdu1XdGPJR+Os=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
       }
     },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "flake-parts": "flake-parts",
+        "haskell-flake": "haskell-flake",
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-24_05": "nixpkgs-24_05",
+        "systems": "systems"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     }
   },
