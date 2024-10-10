@@ -54,21 +54,6 @@ in
       inherit noChecks;
       inherit properExtend;
     };
-    packages = prev.haskell.packages // {
-      ghc9101 =
-        pipe
-          {
-            overrides =
-              hfinal: hprev:
-              {
-              };
-          }
-          [
-            ghc9101.override
-            noChecks
-            noHaddocks
-          ];
-    };
-
+   
   };
 }

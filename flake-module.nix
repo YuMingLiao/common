@@ -4,6 +4,7 @@ common:
 {
   imports = [
     common.inputs.haskell-flake.flakeModule
+    ./nix/ghc9101.nix
   ];
   perSystem = { self', system, inputs', lib, ... }: {
   
@@ -11,7 +12,6 @@ common:
       inherit system;
       #config.allowUnfree = true;
       overlays = [
-        ./haskell-lib.nix
       ];
     };
   };
