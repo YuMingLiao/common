@@ -30,6 +30,7 @@
             systems = import inputs.systems;
             imports = [
               inputs.haskell-flake.flakeModule
+              mod
             ];
           };
     };
