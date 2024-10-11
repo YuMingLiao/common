@@ -7,12 +7,13 @@ common:
     ./nix/ghc9101.nix
   ];
   perSystem = { self', system, inputs', lib, ... }: {
-  
-    _module.args.pkgs = import inputs.nixpkgs {
-      inherit system;
-      #config.allowUnfree = true;
-      overlays = [
-      ];
-    };
+
+# it causes downstream flake needs an input nixpkgs in perSystem  
+#    _module.args.pkgs = import inputs.nixpkgs {
+#      inherit system;
+#      #config.allowUnfree = true;
+#      overlays = [
+#      ];
+#    };
   };
 }
