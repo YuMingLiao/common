@@ -2,35 +2,36 @@
   description = "test overlayed pkgs";
 
   inputs = {
-    common.url = "git+file:///home/nixos/common";
-    nixpkgs.follows = "common/nixpkgs";
-    typed-fsm.url ="git+file:///home/nixos/fix/typed-fsm";
+    flake-parts.follows = "example/flake-parts";
+    example.url ="github:YuMingLiao/haskell-flake-dependency-instance";
+    haskell-flake.follows = "example/haskell-flake";
   };
 
   outputs =
     inputs@{
       self,
       nixpkgs,
-      common,
+      flake-parts,
       ...
     }:
-    common.inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = ["x86_64-linux"];
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = nixpkgs.lib.systems.flakeExposed;
+      imports = [ 
+        inputs.haskell-flake.flakeModule ];
       perSystem =
         {
           self',
           config,
           pkgs,
-          system,
           ...
         }:
         {
           haskellProjects.default = {
             imports = [
-              inputs.typed-fsm.haskellFlakeProjectModules.output
+              inputs.example.haskellFlakeProjectModules.output
             ];
           };
-          packages.default = throw "${system}";
+          packages.default = throw "error";
 
         };
     };

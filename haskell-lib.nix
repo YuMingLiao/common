@@ -54,6 +54,8 @@ in
       inherit noChecks;
       inherit properExtend;
     };
-   
+  };
+  lib = (prev.lib or {}) // {
+    runHPack = runCommand
   };
 }
