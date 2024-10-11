@@ -7,6 +7,11 @@
     haskell-flake.url = "github:srid/haskell-flake";
     #nixpkgs-24_05.url = "github:nixos/nixpkgs/nixos-24.05"; # Used for my nixos
     systems.url = "github:nix-systems/default";
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
