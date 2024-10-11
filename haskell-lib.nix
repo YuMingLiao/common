@@ -44,7 +44,14 @@ let
           );
       })
     ));
-
+  runHPACK = drv: prev.stdenv.mkDerivation {
+    name = drv.name + "hpacked-source";
+    src = drv.src;
+    buildInputs = [prev.haskellPackages.hpack];
+    buildPhase = ''
+      hpack
+      cp . $out 
+    '';
 in
 
 {
