@@ -5,6 +5,7 @@ common:
   imports = [
     common.inputs.haskell-flake.flakeModule
     ./nix/ghc9101.nix
+    ./nix/ghc966.nix
   ];
   perSystem = { self', system, inputs', lib, ... }: {
 
