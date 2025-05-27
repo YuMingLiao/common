@@ -12,7 +12,7 @@
       ...
     }:
     {
-      haskellProjects.ghc966 = {
+      haskellProjects.ghc965 = {
         projectFlakeName = "YuMingLiao:common";
 
         # This is not a local project, so disable those options.
@@ -34,7 +34,7 @@
                 };
             }
             [
-              pkgs'.haskell.packages.ghc966.override
+              pkgs'.haskell.packages.ghc965.override
               noChecks
               noHaddocks
             ];
