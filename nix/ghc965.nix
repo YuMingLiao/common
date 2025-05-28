@@ -12,6 +12,12 @@
       ...
     }:
     {
+      _module.args.pkgs = import inputs'.nixpkgs {
+        inherit system;
+        #config.allowUnfree = true;
+        overlays = [ (import ./haskell-lib.nix) ];
+      };
+
       haskellProjects.ghc965 = {
         projectFlakeName = "YuMingLiao:common";
 
@@ -21,9 +27,9 @@
         autoWire = [ ];
 
         basePackages = pkgs.haskell.packages.ghc965;
-#        otherOverlays = [
-#          (final: prev: { foo = ; })
-#        ];
+        #        otherOverlays = [
+        #          (final: prev: { foo = ; })
+        #        ];
       };
     };
 }

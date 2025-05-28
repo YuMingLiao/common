@@ -9,12 +9,12 @@ common:
   perSystem = { self', system, inputs', lib, ... }: {
 
 # it causes downstream flake needs an input nixpkgs in perSystem  
-    _module.args.pkgs = import inputs.nixpkgs {
-      inherit system;
-      #config.allowUnfree = true;
-      overlays = [
-        (import ./haskell-lib.nix)
-      ];
-    };
+#    _module.args.pkgs = import inputs.nixpkgs {
+#      inherit system;
+#      #config.allowUnfree = true;
+#      overlays = [
+#        (import ./haskell-lib.nix)
+#      ];
+#    };
   };
 }
