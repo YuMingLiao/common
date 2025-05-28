@@ -38,13 +38,19 @@ in
 #    };
 
     packages = prev.haskell.packages // {
+      ghc965 = prev.haskell.packages.ghc965.override {
+        overrides = hfinal: hprev: {
+          ghc = prev.haskell.lib.dontHaddock ghc;
+        };
+        
+      };
       #ghc965 = prev.lib.pipe { overrides = hfinal: hprev: { }; } [
         #prev.haskell.packages.ghc965.override
         #final.haskell.lib.noChecks
         #final.haskell.lib.noHaddocks
       #];
     };
-    compiler = prev.haskell.compiler // {
-      ghc965 = prev.haskell.lib.dontHaddock prev.haskell.compiler.ghc965;
-  };
+#    compiler = prev.haskell.compiler // {
+#      ghc965 = prev.haskell.lib.dontHaddock prev.haskell.compiler.ghc965;
+#  };
 }
