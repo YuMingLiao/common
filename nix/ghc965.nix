@@ -9,15 +9,15 @@
       pkgs,
       lib,
       config,
-      inputs,
       system,
+      inputs',
       ...
     }:
     {
-      _module.args.pkgs = import inputs.nixpkgs {
+      _module.args.pkgs = import inputs'.nixpkgs {
         inherit system;
         #config.allowUnfree = true;
-        overlays = [ inputs.self.overlays.default ];
+        overlays = [ inputs'.self.overlays.default ];
       };
 
       haskellProjects.ghc965 = {
