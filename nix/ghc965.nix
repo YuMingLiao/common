@@ -14,11 +14,6 @@
       ...
     }:
     {
-      _module.args.pkgs = import inputs'.nixpkgs {
-        inherit system;
-        #config.allowUnfree = true;
-        overlays = [ inputs'.self.overlays.default ];
-      };
 
       haskellProjects.ghc965 = {
         projectFlakeName = "YuMingLiao:common";
@@ -37,6 +32,6 @@
     };
 
     flake = {
-      overlays.default = import ./overlay.nix;
+      overlays.faster = import ./overlay.nix;
     };
 }
