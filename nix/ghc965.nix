@@ -32,6 +32,6 @@
     };
 
     flake = {
-      overlays.faster = import ./overlay.nix;
+      overlays.faster = import ../overlay.nix;
     };
 }
