@@ -26,7 +26,11 @@
           in
           with pkgs'.haskell.lib;
           with pkgs'.lib.trivial;
-          noChecks (noHaddocks (pkgs'.haskell.packages.ghc965.override { overrides = hfinal: hprev: { }; }));
+          pipe { overrides = hfinal: hprev: { }; } [
+            pkgs'.haskell.packages.ghc965.override
+            noChecks
+            noHaddocks
+          ];
       };
     };
 }
