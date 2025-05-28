@@ -16,17 +16,14 @@
         projectFlakeName = "YuMingLiao:common";
 
         # This is not a local project, so disable those options.
-        # defaults.packages = { };
+        defaults.packages = { };
         devShell.enable = false;
         autoWire = [ ];
 
         basePackages = pkgs.haskell.packages.ghc965;
-        packages = {
-          ghc.source = pkgs.haskell.compiler.ghc965; 
-        };
-        settings = {
-          ghc.haddock = false;
-        };
+#        otherOverlays = [
+#          (final: prev: { foo = ; })
+#        ];
       };
     };
 }

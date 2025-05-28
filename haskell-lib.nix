@@ -19,30 +19,12 @@ let
   noHaddocks =
     hp:
     (properExtend hp (
-      final: prev: ({
-        mkDerivation =
-          args:
-          prev.mkDerivation (
-            args
-            // {
-              doHaddock = false;
-            }
-          );
-      })
+      final: prev: ({ mkDerivation = args: prev.mkDerivation (args // { doHaddock = false; }); })
     ));
   noChecks =
     hp:
     (properExtend hp (
-      final: prev: ({
-        mkDerivation =
-          args:
-          prev.mkDerivation (
-            args
-            // {
-              doCheck = false;
-            }
-          );
-      })
+      final: prev: ({ mkDerivation = args: prev.mkDerivation (args // { doCheck = false; }); })
     ));
 
 in
@@ -53,6 +35,15 @@ in
       inherit noHaddocks;
       inherit noChecks;
       inherit properExtend;
+    };
+
+    packages = prev.haskell.packages // {
+      ghc965 = pipe { overrides = hfinal: hprev: { }; } [
+        prev.haskell.packages.ghc965.override
+        final.haskell.lib.noChecks
+        final.haskell.lib.noHaddocks
+      ];
+
     };
   };
 }
