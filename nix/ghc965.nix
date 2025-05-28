@@ -20,18 +20,10 @@
         devShell.enable = false;
         autoWire = [ ];
 
-        basePackages =
-          let
-            pkgs' = pkgs.extend (import ../haskell-lib.nix);
-          in
-          with pkgs'.haskell.lib;
-          with pkgs'.lib.trivial;
- 
-          pipe { overrides = hfinal: hprev: { }; } [
-            pkgs'.haskell.packages.ghc965.override
-            noChecks
-            noHaddocks
-          ];
+        basePackages = pkgs.haskell.packages.ghc965;
+        settings = {
+          ghc.haddock = false;
+        };
       };
     };
 }
