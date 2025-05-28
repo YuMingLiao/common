@@ -24,14 +24,7 @@
         autoWire = [ ];
 
         basePackages = pkgs.haskell.packages.ghc965;
-          #import pkgs { overlays = [ (import ./overlay.nix) ]; };
-        #        otherOverlays = [
-        #          (final: prev: { foo = ; })
-        #        ];
       };
     };
 
-    flake = {
-      overlays.faster = import ../overlay.nix;
-    };
 }
