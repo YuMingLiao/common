@@ -9,9 +9,16 @@
       pkgs,
       lib,
       config,
+      inputs,
+      system,
       ...
     }:
     {
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        #config.allowUnfree = true;
+        overlays = [ inputs.self.overlays.default ];
+      };
 
       haskellProjects.ghc965 = {
         projectFlakeName = "YuMingLiao:common";
@@ -21,10 +28,15 @@
         devShell.enable = false;
         autoWire = [ ];
 
-        basePackages = import pkgs { overlays = [ (import ./haskell-lib.nix) ]; };
+        basePackages = pkgs.haskell.packages.ghc965;
+          #import pkgs { overlays = [ (import ./overlay.nix) ]; };
         #        otherOverlays = [
         #          (final: prev: { foo = ; })
         #        ];
       };
+    };
+
+    flake = {
+      overlays.default = import ./overlay.nix;
     };
 }

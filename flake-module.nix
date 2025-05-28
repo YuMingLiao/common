@@ -6,15 +6,24 @@ common:
     common.inputs.haskell-flake.flakeModule
     ./nix/ghc965.nix
   ];
-  perSystem = { self', system, inputs', lib, ... }: {
+  perSystem =
+    {
+      self',
+      system,
+      inputs',
+      lib,
+      ...
+    }:
+    {
 
- #it causes downstream flake needs an input nixpkgs in perSystem  
-    _module.args.pkgs = import inputs.nixpkgs {
-      inherit system;
-      #config.allowUnfree = true;
-      overlays = [
-        (import ./haskell-lib.nix)
-      ];
+      #it causes downstream flake needs an input nixpkgs in perSystem  
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        #config.allowUnfree = true;
+        overlays = [ (import ./overlay.nix) ];
+      };
     };
+  flake = {
+    overlays.default = import ./overlay.nix;
   };
 }
