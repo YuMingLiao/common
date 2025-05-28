@@ -13,7 +13,7 @@ common:
       inherit system;
       #config.allowUnfree = true;
       overlays = [
-        ./haskell-lib.nix
+        (import ./haskell-lib.nix)
       ];
     };
   };
