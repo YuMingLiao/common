@@ -38,7 +38,7 @@ in
     };
 
     packages = prev.haskell.packages // {
-      ghc965 = pipe { overrides = hfinal: hprev: { }; } [
+      ghc965 = prev.lib.pipe { overrides = hfinal: hprev: { }; } [
         prev.haskell.packages.ghc965.override
         final.haskell.lib.noChecks
         final.haskell.lib.noHaddocks
