@@ -24,10 +24,10 @@
           let
             pkgs' = pkgs.extend (import ../haskell-lib.nix);
           in
-          with pkgs'.haskell.lib;
-          with pkgs'.lib.trivial;
+          with pkgs.haskell.lib;
+          #with pkgs'.lib.trivial;
           pipe { overrides = hfinal: hprev: { }; } [
-            pkgs'.haskell.packages.ghc965.override
+            pkgs.haskell.packages.ghc965.override
             noChecks
             noHaddocks
           ];
