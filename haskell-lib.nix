@@ -40,7 +40,7 @@ in
     packages = prev.haskell.packages // {
       ghc965 = prev.haskell.packages.ghc965.override {
         overrides = hfinal: hprev: {
-          ghc = prev.haskell.lib.dontHaddock ghc;
+          ghc = prev.haskell.lib.dontHaddock hprev.ghc;
         };
         
       };
