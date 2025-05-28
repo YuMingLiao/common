@@ -22,6 +22,7 @@
 
         basePackages =
           with pkgs.haskell.lib;
+          with pkgs.lib;
           pipe { overrides = hfinal: hprev: { }; } [
             pkgs.haskell.packages.ghc965.override
             noChecks
