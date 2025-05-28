@@ -43,7 +43,7 @@ in
         final.haskell.lib.noChecks
         final.haskell.lib.noHaddocks
       ];
-
     };
+    compiler = final.haskell.lib.noHaddocks prev.haskell.compiler;
   };
 }
