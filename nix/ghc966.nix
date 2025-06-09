@@ -22,7 +22,7 @@
 
         basePackages =
           let
-            pkgs' = pkgs.extend (import ../overlay.nix);
+            pkgs' = pkgs.extend (import ../haskell-lib.nix);
           in
           with pkgs'.haskell.lib;
           with pkgs'.lib.trivial;
