@@ -16,6 +16,15 @@ common:
       ...
     }:
     {
+      devShell = {
+        tools = hp: {
+          haskell-language-server = null;
+          hlint = null;
+        };
+
+        hoogle = false;
+        #hlsCheck.enable = false;
+      };
 
     };
 }
