@@ -3,7 +3,7 @@
 
   inputs = {
     # Don't use nixpkgs-unstable, otherwise you will keep downloading and re-compiling haskell packages when nix flake update.
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     flake-parts.url = "github:hercules-ci/flake-parts";
     haskell-flake.url = "github:srid/haskell-flake";
     check-flake.url = "github:srid/check-flake";
