@@ -35,11 +35,11 @@
     },
     "haskell-flake": {
       "locked": {
-        "lastModified": 1754858019,
-        "narHash": "sha256-pqGKKV0o+ScnkqyTUVPaL6w9gjTiD1hgHPREeWEltFI=",
+        "lastModified": 1756071733,
+        "narHash": "sha256-hRlG8+m5oOBb6/a8DQAzrt0ApLYkbNfActj7b3OzeLk=",
         "owner": "srid",
         "repo": "haskell-flake",
-        "rev": "0ba5180c3eafe3e0585905b8cafb61e0bfaa1738",
+        "rev": "99200161a88c1cb83bb114ab237e66d3fe327692",
         "type": "github"
       },
       "original": {
@@ -48,13 +48,26 @@
         "type": "github"
       }
     },
+    "lib": {
+      "locked": {
+        "lastModified": 1756125890,
+        "narHash": "sha256-XBhIQ0XR1QabTgyo2c5wMk6xk/Bd3bCUlnTzRPcVfcw=",
+        "rev": "c55943c5e8197cbc2d0e506693fd5e7e3ea0a0c3",
+        "type": "tarball",
+        "url": "https://git.auxolotl.org/api/v1/repos/auxolotl/lib/archive/c55943c5e8197cbc2d0e506693fd5e7e3ea0a0c3.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://git.auxolotl.org/auxolotl/lib/archive/main.tar.gz"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1755274400,
-        "narHash": "sha256-rTInmnp/xYrfcMZyFMH3kc8oko5zYfxsowaLv1LVobY=",
+        "lastModified": 1755922037,
+        "narHash": "sha256-wY1+2JPH0ZZC4BQefoZw/k+3+DowFyfOxv17CN/idKs=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ad7196ae55c295f53a7d1ec39e4a06d922f3b899",
+        "rev": "b1b3291469652d5a2edb0becc4ef0246fff97a7c",
         "type": "github"
       },
       "original": {
@@ -84,6 +97,7 @@
         "check-flake": "check-flake",
         "flake-parts": "flake-parts",
         "haskell-flake": "haskell-flake",
+        "lib": "lib",
         "nixpkgs": "nixpkgs",
         "systems": "systems"
       }

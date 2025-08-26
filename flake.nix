@@ -13,6 +13,7 @@
     #  url = "github:snowfallorg/lib";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
+    lib.url = "https://git.auxolotl.org/auxolotl/lib/archive/main.tar.gz";
 
   };
 
