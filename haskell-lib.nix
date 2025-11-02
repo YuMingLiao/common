@@ -36,7 +36,7 @@ in
       inherit noChecks;
       inherit properExtend;
     };
-
+/*
     packages = prev.haskell.packages // {
       ghc965 = prev.haskell.packages.ghc965.override {
         overrides = hfinal: hprev: { ghc = prev.haskell.lib.dontHaddock hprev.ghc; };
@@ -51,5 +51,6 @@ in
     #    compiler = prev.haskell.compiler // {
     #      ghc965 = prev.haskell.lib.dontHaddock prev.haskell.compiler.ghc965;
     #  };
+  */
   };
 }
